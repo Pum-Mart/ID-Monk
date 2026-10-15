@@ -2062,7 +2062,7 @@ async function makePdf(pages,onStep){
   try{
     const doc=fr.contentDocument;doc.open();
     doc.write(`<!doctype html><html lang="km"><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Moul&display=swap"><style>${PRINT_CSS}
-      body{background:#fff}.bar{display:none}.page{margin:0 0 20px;box-shadow:none}</style></head><body>${pages.join('')}</body></html>`);
+      body{background:#fff}.bar{display:none}.page{margin:0 0 20px;box-shadow:none}</style></head><body>${pages.join('')}<!-- GitHub deployment trigger --></body></html>`);
     doc.close();
     await new Promise(r=>{if(doc.readyState==='complete')r();else fr.onload=r;setTimeout(r,4000)});
     try{await doc.fonts.ready}catch(_){}
